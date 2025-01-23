@@ -23,24 +23,22 @@ A UML (Unified Modeling Language) Class Diagram is a visual representation of a 
    - **Middle Section**: Attributes
    - **Bottom Section**: Methods
 
-   ```
-   +---------------+
-   | ClassName     |
-   +---------------+
-   | - attribute1  |
-   | - attribute2  |
-   +---------------+
-   | + method1()   |
-   | + method2()   |
-   +---------------+
-   ```
+```mermaid
+    classDiagram
+    class ClassName {
+        + type attribute1
+        - type attribute2 
+        + returnType method1()
 
-2. **Attributes**: Characteristics of a class, usually represented with visibility indicators:
+    }
+```
+
+1. **Attributes**: Characteristics of a class, usually represented with visibility indicators:
    - `+` (public)
    - `-` (private)
    - `#` (protected)
 
-3. **Methods**: Functions or operations that a class can perform.
+2. **Methods**: Functions or operations that a class can perform.
 
 ## Relationships
 
@@ -52,112 +50,49 @@ A UML (Unified Modeling Language) Class Diagram is a visual representation of a 
 
 - **Composition**: A stronger "whole-part" relationship where the part cannot exist independently of the whole. Represented by a solid line with a filled diamond at the whole end.
 
-## Example UML Class Diagrams
+## Examples UML Class Diagrams
 
 
 ### UML Example of Inheritance
-
-In this example, we have a superclass called `Animal` and two subclasses, `Dog` and `Cat`. The subclasses inherit attributes and methods from the `Animal` class.
-
-```plaintext
-+---------------+
-|   Animal      |
-+---------------+
-| - name        |
-| - age         |
-+---------------+
-| + eat()       |
-| + sleep()     | < --------------|
-+---------------+                 |
-       ^                          |
-       |                          |
-+---------------+          +---------------+
-|   Dog         |          |   Cat         |
-+---------------+          +---------------+
-| - breed       |          | - color       |
-+---------------+          +---------------+
-| + bark()      |          | + meow()      |
-+---------------+          +---------------+
-```
-
-### Explanation:
-- **Animal**: The base class with common attributes (`name`, `age`) and methods (`eat()`, `sleep()`).
-- **Dog** and **Cat**: Subclasses that extend the `Animal` class by adding specific attributes (`breed` and `color`) and methods (`bark()` and `meow()`).
-
-### UML Example of Composition
-
-In this example, we have a `Car` class that is composed of `Engine` and `Wheel` classes. The composition relationship indicates that the `Car` cannot exist without its `Engine` and `Wheels`.
-
-```plaintext
-+-----------------+
-|      Car        |
-+-----------------+
-| - engine: Engine|
-| - wheels: Wheel[]|
-+-----------------+
-| + start()       |
-| + stop()        |
-+-----------------+
-       /_\
-        |
-       ◼
-+-----------------+          +-----------------+
-|      Engine     |          |      Wheel      |
-+-----------------+          +-----------------+
-| - horsepower    |          | - size          |
-+-----------------+          +-----------------+
-| + ignite()      |          | + rotate()      |
-+-----------------+          +-----------------+
-```
-
-### Explanation:
-- **Car**: The whole, which contains `Engine` and `Wheel` objects. If the `Car` is destroyed, its `Engine` and `Wheels` cannot exist independently.
-- **Engine** and **Wheel**: The parts that are integral to the `Car`. They have their own attributes and methods.
-
-
-
-```plaintext
-+-----------------+          +-----------------+
-|   Person        |<>------- |   Address       |
-+-----------------+          +-----------------+
-| - name          |          | - street        |
-| - age           |          | - city          |
-+-----------------+          +-----------------+
-| + getName()     |          | + getFullAddress()|
-| + getAge()      |          +-----------------+
-+-----------------+
-
-       ^
-       |
-+-----------------+
-|   Employee      |
-+-----------------+
-| - employeeId    |
-+-----------------+
-| + getEmployeeId()|
-+-----------------+
-```
 ```mermaid
 classDiagram
     class Person {
         +String name
         +int age
         +void greet()
+        +void walk()
     }
 
     class Student {
         +int studentId
         +void study()
+        +void takeExam()
     }
 
     class Teacher {
         +String subject
         +void teach()
+        +void gradeExam()
     }
 
     Person <|-- Student
     Person <|-- Teacher
 ```
+### Explanation of Methods:
+
+#### Person:
+- **greet()**: A method for the person to greet others.
+- **walk()**: A method to describe a person’s ability to walk.
+
+#### Student:
+- **study()**: A method to describe studying behavior.
+- **takeExam()**: A method for students to take exams.
+
+#### Teacher:
+- **teach()**: A method for teachers to teach a subject.
+- **gradeExam()**: A method for grading exams.
+
+
 
 ## Tools for Creating UML Diagrams
 - **Lucidchart**: An online diagram tool that supports UML diagrams.
