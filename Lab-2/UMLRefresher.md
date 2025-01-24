@@ -6,9 +6,6 @@
 
 ### Lab Instructor: [Trevor Douglas](mailto:trevor.douglas@uregina.ca)
 
-## Introduction
-
-
 ## Background
 
 **Unified Modeling Language (UML)** is a standardized visual modeling language used to represent, design, and document the structure and behavior of software systems. It provides a way to visualize and communicate complex software designs, making it an essential tool for developers, architects, and stakeholders.
@@ -32,6 +29,11 @@ UML is divided into two main categories of diagrams:
    - **Activity Diagram**: Models workflows or processes.
    - **State Diagram**: Describes the lifecycle of an object, including its states and transitions.
 
+### Benefits of UML:
+- **Clarity**: Simplifies the understanding of complex systems by providing clear visual representations.
+- **Collaboration**: Facilitates communication among team members and stakeholders.
+- **Standardization**: Adheres to industry standards, ensuring compatibility across tools and platforms.
+- **Flexibility**: Can be applied to various industries and methodologies, including Agile, Waterfall, and DevOps.
 
 
 ## Components of a UML Class Diagram
@@ -205,11 +207,6 @@ classDiagram
 - `move()`: A method to move the furniture.
 - `clean()`: A method to clean the furniture.
 
-#### **Wall**:
-- `color`: The color of the wall.
-- `material`: The material of the wall (e.g., brick, drywall).
-- `paint()`: A method to repaint the wall.
-
 #### **Door**:
 - `type`: The type of door (e.g., sliding, hinged).
 - `lockType`: The type of lock on the door (e.g., deadbolt, latch).
@@ -218,17 +215,54 @@ classDiagram
 
 ### Key Points:
 - **House** contains **Room**, and if the `House` is destroyed, all `Room` instances are also destroyed.
-- Each **Room** is tightly bound to its parts (`Furniture`, `Wall`, and `Door`), meaning their lifetimes depend on the existence of the `Room`.
+- Each **Room** is tightly bound to its parts (`Furniture`, and `Door`), meaning their lifetimes depend on the existence of the `Room`.
 - The **`*--`** arrow denotes the composition relationships throughout the diagram.
+
+## Examples UML Class Diagrams
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant Browser
+    participant Server
+    participant Database
+
+    User->>Browser: Enter login details
+    Browser->>Server: Send login request
+    Server->>Database: Validate user credentials
+    Database-->>Server: Return validation result
+    Server-->>Browser: Send authentication response
+    Browser-->>User: Display login success or failure
+```
+### Explanation:
+- **Sequence diagrams** represent how objects or participants interact with each other in a specific sequence of time.
+
+### Participants:
+- **User**: Represents the person interacting with the system.
+- **Browser**: Represents the user’s interface (e.g., a web browser).
+- **Server**: Represents the backend system handling the logic.
+- **Database**: Represents the data storage system.
+
+### Arrows:
+- **`->>`**: Represents a message or request sent from one participant to another.
+- **`-->>`**: Represents a response or return message.
+
+### Use Case:
+1. The user enters login credentials (username and password) into the browser.
+2. The browser sends the login request to the server.
+3. The server interacts with the database to validate the user’s credentials.
+4. The database sends the validation result back to the server.
+5. The server responds to the browser with the authentication result.
+6. The browser displays the login success or failure message to the user.
+
+This diagram captures the flow of events in a typical user authentication process.
+
 
 ## Tools for Creating UML Diagrams
 - **Lucidchart**: An online diagram tool that supports UML diagrams.
 - **Draw.io**: A free online diagramming tool.
 - **StarUML**: A desktop application specifically for UML modeling.
 
-## Conclusion
-UML Class Diagrams are essential for visualizing the structure of a system. By understanding classes, attributes, methods, and relationships, you can design robust object-oriented systems.
 
-
-
-
+## Conclusion:
+UML is a powerful tool for modeling and designing systems, bridging the gap between technical teams and stakeholders. By providing a clear, standardized way to visualize software and systems, UML enhances communication, simplifies complex concepts, and supports the successful development of robust and efficient solutions.
