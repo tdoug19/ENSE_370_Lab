@@ -218,7 +218,7 @@ classDiagram
 - Each **Room** is tightly bound to its parts (`Furniture`, and `Door`), meaning their lifetimes depend on the existence of the `Room`.
 - The **`*--`** arrow denotes the composition relationships throughout the diagram.
 
-## Examples UML Class Diagrams
+## Examples UML Sequence Diagram
 
 ```mermaid
 sequenceDiagram
@@ -262,7 +262,32 @@ This diagram captures the flow of events in a typical user authentication proces
 - **Lucidchart**: An online diagram tool that supports UML diagrams.
 - **Draw.io**: A free online diagramming tool.
 - **StarUML**: A desktop application specifically for UML modeling.
+- **UMLet**: A free diagramming tool.
 
 
 ## Conclusion:
 UML is a powerful tool for modeling and designing systems, bridging the gap between technical teams and stakeholders. By providing a clear, standardized way to visualize software and systems, UML enhances communication, simplifies complex concepts, and supports the successful development of robust and efficient solutions.
+
+## Procedure
+
+I have taken and adapted two diagrams from chapters 3 and 4 of *UML Distilled, 3rd ed.* by Martin Fowler. Your first task is to use the class diagram to produce corresponding code, sufficient that you can execute the system and see it working in skeletal form. 
+
+<table>
+  <tr>
+    <td> <img src="Order.jpg"  alt="Order" width = 600px height = 500px ></td>
+  </tr>
+</table>
+
+Next, examine the sequence diagram, and modify your existing code to implement the centralized control scenario shown. Again, get the code executing in skeletal form but you should be able to perform what is depicted by the sequence diagram.
+
+<table>
+  <tr>
+    <td> <img src="Sequence.jpg"  alt="Sequence" width = 500px height = 450px ></td>
+  </tr>
+</table>
+
+
+During this process, you may find that some modification and/or clarification of some of these classes may be necessary. In that case, you must update the class and sequence diagrams to reflect those changes. I will accept hand-drawn UML diagrams, or you may use a drawing tool like Violet, UMLet, or ArgoUML, etc.
+
+## 2 Deliverables
+- Submit your code and UML documentation to Snoopy.
