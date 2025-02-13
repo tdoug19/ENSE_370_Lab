@@ -23,6 +23,9 @@ The Factory Pattern typically consists of the following components:
 3. **Factory Class** - Contains a method to create objects based on input conditions.
 4. **Client** - Calls the factory method instead of directly instantiating objects.
 
+### Factory Pattern Example
+Suppose we wanted to create a factory to build enemy UFO Ships?  [Reference Derek Banas](https://www.youtube.com/watch?v=ub0DXaeV6hA&t=451s)
+
 ```mermaid
 classDiagram
     direction LR
@@ -31,15 +34,19 @@ classDiagram
         - amtDamage: double
         +followHeroShip(): void
         +displayEnemyShip(): void
+        +enemyShipShoots(): void
+        +setDamage(double): void
     }
     class UFOEnemyShip {
         +setName(String): void
+        +getName(): String
     }
     class RocketEnemyShip {
         +setName(String): void
+        +getName(): String
     }
     class EnemyShipFactory~factory~{
-        + makeEnemyShip(String)
+        + makeEnemyShip(String): EnemyShip
     }
     class Client {
         
@@ -52,7 +59,37 @@ classDiagram
 
 ```
 
+<details>
 
+<summary>expand EnemyShip.java</summary>
+
+in `EnemyShip.java`
+
+```java
+abstract class EnemyShip {
+    protected String name;
+    protected double amtDamage;
+
+    public void followHeroShip() {
+        System.out.println(name + " is following the hero ship.");
+    }
+
+    public void displayEnemyShip() {
+        System.out.println(name + " is on the screen.");
+    }
+
+    public void enemyShipShoots() {
+        System.out.println(name + " attacks and does " + amtDamage + " damage.");
+    }
+
+    public void setDamage(double damage) {
+        this.amtDamage = damage;
+    }
+}
+
+```
+
+</details>
 
 
 
