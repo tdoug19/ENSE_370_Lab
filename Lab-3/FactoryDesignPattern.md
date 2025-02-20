@@ -147,7 +147,7 @@ public class EnemyShipTesting {
 
 ### Factory Pattern Example
 Suppose we wanted to create a factory to build enemy UFO Ships?  [Reference Derek Banas](https://www.youtube.com/watch?v=ub0DXaeV6hA&t=451s)
-
+This will allow us to create Enemy Ships at runtime and which type of ship can be determined at run time.
 
 ```mermaid
 classDiagram
@@ -184,29 +184,23 @@ classDiagram
 
 <details>
 
-<summary>expand EnemyShip.java</summary>
+<summary>expand EnemyShipFactory.java</summary>
 
-in `EnemyShip.java`
+in `EnemyShipFactory.java`
 
 ```java
-abstract class EnemyShip {
-    protected String name;
-    protected double amtDamage;
+class EnemyShipFactory {
+    
+    public EnemyShip makeEnemyShip(String newShipType){
 
-    public void followHeroShip() {
-        System.out.println(name + " is following the hero ship.");
-    }
+        if(newShipType.equals("U")){
+            return new UFOEnemyShip();
+        }
 
-    public void displayEnemyShip() {
-        System.out.println(name + " is on the screen.");
-    }
-
-    public void enemyShipShoots() {
-        System.out.println(name + " attacks and does " + amtDamage + " damage.");
-    }
-
-    public void setDamage(double damage) {
-        this.amtDamage = damage;
+        if(newShipType.equals("R")){
+            return new RocketEnemyShip();
+        }
+        return null;
     }
 }
 
@@ -214,6 +208,52 @@ abstract class EnemyShip {
 
 </details>
 
+#### Let us test our armada now using the Factory
+
+<details>
+
+<summary>expand Test the Armada</summary>
+
+in `EnemyShipTesting`
+
+```java
+
+import java.util.Scanner;
+
+public class EnemyShipTesting {
+    
+    public static void main(String[] args){
+
+        //Create the Factory object
+        EnemyShipFactory shipFactory = new EnemyShipFactory();
+
+        Scanner userInput = new Scanner(System.in);
+        
+        //Ask the operator which ship to create
+        System.out.println("What type? U = UfO; R = Rocket");
+
+        if (userInput.hasNextLine()){
+            
+            String typeOfShip = userInput.nextLine();
+
+            EnemyShip enemyShip = shipFactory.makeEnemyShip(typeOfShip);
+
+            if(enemyShip != null){
+                doStuffToEnemy(enemyShip);
+            }
+        }
+    }
+
+    public static void doStuffToEnemy(EnemyShip anEnemyShip){
+
+        anEnemyShip.displayEnemyShip();
+        anEnemyShip.followHeroShip();
+        anEnemyShip.enemyShipShoots();
+    }
+}
+
+```
+</details>
 
 
 
