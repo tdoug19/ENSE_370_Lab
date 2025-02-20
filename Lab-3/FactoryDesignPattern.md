@@ -137,13 +137,17 @@ public class EnemyShipTesting {
         anEnemyShip.followHeroShip();
         anEnemyShip.enemyShipShoots();
     }
+
 }
+
+
 ```
-<\details>
+</details>
 
 
 ### Factory Pattern Example
 Suppose we wanted to create a factory to build enemy UFO Ships?  [Reference Derek Banas](https://www.youtube.com/watch?v=ub0DXaeV6hA&t=451s)
+
 
 ```mermaid
 classDiagram
