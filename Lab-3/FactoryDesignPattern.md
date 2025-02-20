@@ -86,7 +86,7 @@ class UFOEnemyShip extends EnemyShip {
 
 <summary>expand a Concrete RocketEnemyShip</summary>
 
-in `UFOEnemyShip`
+in `RocketEnemyShip`
 
 ```java
 class RocketEnemyShip extends EnemyShip {
@@ -107,6 +107,39 @@ class RocketEnemyShip extends EnemyShip {
 ```
 
 </details>
+
+#### Let us test our armada
+
+<details>
+
+<summary>Test the Armada</summary>
+
+in `EnemyShipTesting`
+
+```java
+public class EnemyShipTesting {
+    
+    public static void main(String[] args){
+
+        EnemyShip ufoShip = new UFOEnemyShip();
+        doStuffToEnemy(ufoShip);
+
+
+        EnemyShip rocketShip = new RocketEnemyShip();
+        doStuffToEnemy(rocketShip);
+
+
+    }
+
+    public static void doStuffToEnemy(EnemyShip anEnemyShip){
+
+        anEnemyShip.displayEnemyShip();
+        anEnemyShip.followHeroShip();
+        anEnemyShip.enemyShipShoots();
+    }
+}
+```
+<\details>
 
 
 ### Factory Pattern Example
