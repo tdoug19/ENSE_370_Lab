@@ -270,6 +270,5 @@ public class EnemyShipTesting {
 ## Conclusion
 The **Factory Design Pattern** is a powerful creational pattern that enhances modularity, scalability, and flexibility in software design. It is widely used in frameworks and libraries where object creation needs to be abstracted and controlled. By using factories, you can decouple the client code from the object creation process, making your application easier to maintain and extend.
 
----
-Would you like a real-world example using another language like Python or JavaScript?
+
 
