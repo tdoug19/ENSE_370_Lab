@@ -270,14 +270,6 @@ public class EnemyShipTesting {
 ## Conclusion
 The **Factory Design Pattern** is a powerful creational pattern that enhances modularity, scalability, and flexibility in software design. It is widely used in frameworks and libraries where object creation needs to be abstracted and controlled. By using factories, you can decouple the client code from the object creation process, making your application easier to maintain and extend.
 
-# ENSE 370 Lab  
-## Factory Design Pattern  
-
-**Author:** Trevor Douglas  
-**Software Systems Lab Instructor**  
-**University of Regina**  
-
----
 
 ## Procedure  
 
@@ -321,7 +313,7 @@ public class Tank {
 
     public boolean getDestroyed(){return destroyed;}
 ```
-</details>
+
 
 
 ```java
@@ -355,12 +347,13 @@ public class Tank {
     }
 }
 ```
+</details>
 
 ---
 
 ## Deliverables  
 - Create a factory capable of building 5 different tanks. (Of course, this could grow.)  
-- The test code (client) should request all the different tanks to be built and then tested.  
+- The test code (client) should request all the different tanks to be built and then tested at runtime.  
 - The test code should not have to change as new tanks come online.  
 - Document your design by creating a UML Class Diagram.  
 - Submit your code and UML documentation via Snoopy.  
