@@ -21,64 +21,6 @@ The **Decorator Pattern** is a structural design pattern that allows behavior to
 
 # Java Abstract Classes vs Interface Classes
 
-## Introduction
-In Java, **abstract classes** and **interfaces** are used to define abstract types that specify the behavior of classes that implement them. However, they have key differences in their usage and functionality.
-
----
-
-## Abstract Classes
-An **abstract class** is a class that cannot be instantiated and may contain both abstract methods (without implementation) and concrete methods (with implementation).
-
-### Characteristics of Abstract Classes:
-- Can have both abstract and non-abstract methods.
-- Can have instance variables.
-- Can have constructors.
-- Can provide partial implementation.
-- Supports access modifiers (public, private, protected, etc.).
-- Supports method overloading and overriding.
-- Can have static methods.
-
-### Example of an Abstract Class:
-```java
-abstract class Animal {
-    String name;
-    
-    // Constructor
-    Animal(String name) {
-        this.name = name;
-    }
-    
-    // Abstract method (must be implemented by subclasses)
-    abstract void makeSound();
-    
-    // Concrete method
-    void sleep() {
-        System.out.println(name + " is sleeping");
-    }
-}
-
-class Dog extends Animal {
-    Dog(String name) {
-        super(name);
-    }
-    
-    @Override
-    void makeSound() {
-        System.out.println(name + " barks");
-    }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        Dog dog = new Dog("Buddy");
-        dog.makeSound();
-        dog.sleep();
-    }
-}
-```
-
----
-
 ## Interfaces
 An **interface** is a reference type in Java that is similar to a class but only contains abstract methods (until Java 8, when default and static methods were introduced).
 
@@ -134,9 +76,80 @@ public class Main {
 
 ---
 
-## Conclusion
-Both abstract classes and interfaces serve important roles in Java’s object-oriented design. Understanding their differences and use cases helps in designing better software systems that follow proper design principles such as abstraction and modularity.
 
+### Decorator Design Pattern Example
+
+```mermaid
+classDiagram
+    direction LR
+    class ToppingDecorator~abstract~ {
+        - tempPizza: Pizza
+        +getDescrption(): String
+        +getCost(): double
+    }
+    class TomatoSauce {
+        +TomatoSauce(Pizza) 
+        
+    }
+    class MozzarellaCheese {
+        +MozzarellaCheese(Pizza)
+        
+    }
+    class Pizza~Interface~{
+        + getDescription(): String
+    }
+    class PlainPizza {
+        
+    }
+
+    PlainPizza ..|> Pizza
+    MozzarellaCheese --|> ToppingDecorator 
+    TomatoSauce --|> ToppingDecorator
+    ToppingDecorator ..|> Pizza
+
+
+
+```
+
+```mermaid
+classDiagram
+    class Pizza {
+        +getDescription() String
+        +getCost() double
+    }
+
+    class PlainPizza {
+        +getDescription() String
+        +getCost() double
+    }
+
+    class ToppingDecorator {
+        +getDescription() String
+        +getCost() double
+    }
+
+    class Cheese {
+        +getDescription() String
+        +getCost() double
+    }
+
+    class Pepperoni {
+        +getDescription() String
+        +getCost() double
+    }
+
+    class Olives {
+        +getDescription() String
+        +getCost() double
+    }
+
+    Pizza <|-- PlainPizza
+    Pizza <|-- ToppingDecorator
+    ToppingDecorator <|-- Cheese
+    ToppingDecorator <|-- Pepperoni
+    ToppingDecorator <|-- Olives
+    ToppingDecorator --> Pizza : wraps
+```
 
 
 ## Advantages
