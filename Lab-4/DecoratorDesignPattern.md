@@ -111,45 +111,6 @@ classDiagram
 
 ```
 
-```mermaid
-classDiagram
-    class Pizza {
-        +getDescription() String
-        +getCost() double
-    }
-
-    class PlainPizza {
-        +getDescription() String
-        +getCost() double
-    }
-
-    class ToppingDecorator {
-        +getDescription() String
-        +getCost() double
-    }
-
-    class Cheese {
-        +getDescription() String
-        +getCost() double
-    }
-
-    class Pepperoni {
-        +getDescription() String
-        +getCost() double
-    }
-
-    class Olives {
-        +getDescription() String
-        +getCost() double
-    }
-
-    Pizza <|-- PlainPizza
-    Pizza <|-- ToppingDecorator
-    ToppingDecorator <|-- Cheese
-    ToppingDecorator <|-- Pepperoni
-    ToppingDecorator <|-- Olives
-    ToppingDecorator --> Pizza : wraps
-```
 
 
 ## Advantages
