@@ -23,6 +23,66 @@ The Factory Pattern typically consists of the following components:
 3. **Factory Class** - Contains a method to create objects based on input conditions.
 4. **Client** - Calls the factory method instead of directly instantiating objects.
 
+# Java Abstract Classes vs Interface Classes
+
+## Introduction
+In Java, **abstract classes** and **interfaces** are used to define abstract types that specify the behavior of classes that implement them. However, they have key differences in their usage and functionality.
+
+---
+
+## Abstract Classes
+An **abstract class** is a class that cannot be instantiated and may contain both abstract methods (without implementation) and concrete methods (with implementation).
+
+### Characteristics of Abstract Classes:
+- Can have both abstract and non-abstract methods.
+- Can have instance variables.
+- Can have constructors.
+- Can provide partial implementation.
+- Supports access modifiers (public, private, protected, etc.).
+- Supports method overloading and overriding.
+- Can have static methods.
+
+### Example of an Abstract Class:
+```java
+abstract class Animal {
+    String name;
+    
+    // Constructor
+    Animal(String name) {
+        this.name = name;
+    }
+    
+    // Abstract method (must be implemented by subclasses)
+    abstract void makeSound();
+    
+    // Concrete method
+    void sleep() {
+        System.out.println(name + " is sleeping");
+    }
+}
+
+class Dog extends Animal {
+    Dog(String name) {
+        super(name);
+    }
+    
+    @Override
+    void makeSound() {
+        System.out.println(name + " barks");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog dog = new Dog("Buddy");
+        dog.makeSound();
+        dog.sleep();
+    }
+}
+```
+
+---
+
 ### Let's take an example of making an armada for UFO ships to invade Earth
 <details>
 
