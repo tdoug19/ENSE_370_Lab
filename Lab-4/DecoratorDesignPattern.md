@@ -7,10 +7,7 @@
 ### Lab Instructor: [Trevor Douglas](mailto:trevor.douglas@uregina.ca)
 
 ## Background
-# Decorator Design Pattern Tutorial
-
-## Introduction
-The **Decorator Pattern** is a structural design pattern that allows behavior to be added to individual objects, dynamically, without affecting the behavior of other objects from the same class. It is often used to adhere to the **Open-Closed Principle** in object-oriented design.
+The **Decorator Pattern** is a structural design pattern that allows behavior to be added to individual objects, dynamically, without affecting the behavior of other objects from the same class. It is often used to adhere to the [**Open-Closed Principle**](./OpenClosed.md) in object-oriented design.
 
 ## Key Concepts
 - **Component:** The base interface or abstract class defining the methods.
