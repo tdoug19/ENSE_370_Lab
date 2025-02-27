@@ -57,3 +57,80 @@ class AreaCalculator {
         return 0;
     }
 }
+
+
+## Why is this bad?
+- If we add a new shape (e.g., `Triangle`), we must modify `AreaCalculator`, which violates OCP.  
+- This makes the code **harder to maintain and extend**.  
+
+
+
+## Good Example (Follows OCP)
+
+To follow **OCP**, we use **polymorphism** and **interfaces** to ensure new shapes can be added **without modifying existing code**.  
+
+
+// Open for extension (New shapes can implement this interface)
+interface Shape {
+    double getArea();
+}
+
+// Different shape implementations
+class Rectangle implements Shape {
+    double width, height;
+
+    public Rectangle(double width, double height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    @Override
+    public double getArea() {
+        return width * height;
+    }
+}
+
+class Circle implements Shape {
+    double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    public double getArea() {
+        return Math.PI * radius * radius;
+    }
+}
+
+// Open for extension but closed for modification
+class AreaCalculator {
+    public double calculate(Shape shape) {
+        return shape.getArea();
+    }
+}
+
+// Adding a new shape without modifying existing code
+class Triangle implements Shape {
+    double base, height;
+
+    public Triangle(double base, double height) {
+        this.base = base;
+        this.height = height;
+    }
+
+    @Override
+    public double getArea() {
+        return 0.5 * base * height;
+    }
+}
+
+
+## Why is this better?
+- If we add a new shape (`Triangle`), we **do not modify** `AreaCalculator`.  
+- The system is **scalable and maintainable** because new functionality can be added **without altering existing code**.  
+
+## Summary
+- The **bad example** violates OCP because modifying `AreaCalculator` is required for every new shape.  
+- The **good example** follows OCP by using **interfaces and polymorphism**, allowing new shapes to be added **without modifying existing code**.  
+- Following **OCP** makes code **more modular, maintainable, and easier to extend** in the future.  
