@@ -9,13 +9,6 @@
 ## Background
 The **Decorator Pattern** is a structural design pattern that allows behavior to be added to individual objects, dynamically, without affecting the behavior of other objects from the same class. It is often used to adhere to the [**Open-Closed Principle**](./OpenClosed.md) in object-oriented design.
 
-## Key Concepts
-- **Component:** The base interface or abstract class defining the methods.
-- **Concrete Component:** The class that implements the base interface.
-- **Decorator:** An abstract class that implements the base interface and has a reference to a component.
-- **Concrete Decorators:** The classes that extend the decorator and add new behavior.
-
-
 # Java Abstract Classes vs Interface Classes
 
 ## Interfaces
@@ -74,7 +67,106 @@ public class Main {
 ---
 
 
-### Decorator Design Pattern Example
+## Decorator Design Pattern
+
+## Key Concepts
+- **Component:** The base interface or abstract class defining the methods.
+- **Concrete Component:** The class that implements the base interface.
+- **Decorator:** An abstract class that implements the base interface and has a reference to a component.
+- **Concrete Decorators:** The classes that extend the decorator and add new behavior.
+
+
+## Let's create a Pizza shop!!
+
+<details>
+
+<summary>expand Pizza.java</summary>
+
+in `Pizza.java`
+```java
+public abstract class Pizza{
+
+
+    public abstract void setDescription(String newDescription);
+    public abstract String getDescription();
+    public abstract void setCost(double newCost);
+    public abstract double getCost();
+
+    // I could use getter and setter methods for every 
+    // potential Pizza topping
+}
+```
+</details>
+
+## Great!  Let's make some yummy pizza pies!
+
+<details>
+<summary>expand ThreeCheesePizza</summary>
+
+```java
+public class ThreeCheesePizza extends Pizza
+{
+    public  void setDescription(String newDescription)	{
+
+    }
+    
+    public  String getDescription(){
+        return "Mozza, Parmasen, Feta Cheese Pizza";
+
+    }
+
+    public  void setCost(double newCost){
+
+    }
+
+    public  double getCost(){
+        return 10.00;
+    }	
+}
+```
+</details>
+
+## Hmmmm  I see potential problems here
+This allows us to treat all pizzas like a pizza.... this is great right?? Now we want to make other pizzas... this could get ugly.... Class Explosion!!
+
+```mermaid
+classDiagram
+    class Pizza {
+        +String name
+        +double price
+        +void prepare()
+        +void bake()
+        +void cut()
+        +void box()
+    }
+
+    class Margherita
+    class Pepperoni
+    class BBQChicken
+    class Hawaiian
+    class Veggie
+    class MeatLovers
+    class Cheese
+    class BuffaloChicken
+    class Supreme
+    class WhiteGarlic
+
+    Pizza <|-- Margherita
+    Pizza <|-- Pepperoni
+    Pizza <|-- BBQChicken
+    Pizza <|-- Hawaiian
+    Pizza <|-- Veggie
+    Pizza <|-- MeatLovers
+    Pizza <|-- Cheese
+    Pizza <|-- BuffaloChicken
+    Pizza <|-- Supreme
+    Pizza <|-- WhiteGarlic
+```
+
+What if I want the price of cheese goes up.  All the other pizzas I used cheese withwill have to change their cost.
+
+Inheritance is static while composition is dynamic in the decorator pattern.
+
 
 ```mermaid
 classDiagram
