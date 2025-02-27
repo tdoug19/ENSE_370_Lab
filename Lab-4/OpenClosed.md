@@ -57,19 +57,18 @@ class AreaCalculator {
         return 0;
     }
 }
-
-
+```
 ## Why is this bad?
 - If we add a new shape (e.g., `Triangle`), we must modify `AreaCalculator`, which violates OCP.  
 - This makes the code **harder to maintain and extend**.  
 
-
+---
 
 ## Good Example (Follows OCP)
 
 To follow **OCP**, we use **polymorphism** and **interfaces** to ensure new shapes can be added **without modifying existing code**.  
 
-
+```java
 // Open for extension (New shapes can implement this interface)
 interface Shape {
     double getArea();
@@ -124,7 +123,7 @@ class Triangle implements Shape {
         return 0.5 * base * height;
     }
 }
-
+```
 
 ## Why is this better?
 - If we add a new shape (`Triangle`), we **do not modify** `AreaCalculator`.  
