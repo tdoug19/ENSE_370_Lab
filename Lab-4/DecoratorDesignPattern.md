@@ -267,6 +267,65 @@ public abstract class ToppingDecorator implements Pizza {​
 
 </details>
 
+
+<details>
+<summary>expand MozzarellaCheese.java</summary>
+
+```Java
+public class MozzarellaCheese extends ToppingDecorator {​
+
+​
+	public MozzarellaCheese(Pizza newPizza) {​
+
+		//Call the super constructor and pass in the reference to the pizza
+        super(newPizza); ​
+
+	    System.out.println("Adding Mozzarella Cheese");​
+	}​
+
+	public String getDescription(){​
+		return tempPizza.getDescription() + ", Mozzarella";​
+	}​
+
+
+	public double getCost(){​
+        return tempPizza.getCost() + 2.00;​
+    }​
+
+}
+
+```
+</details>
+
+## Now Test!!
+
+<details>
+<summary>expand TestPlainPizza.java</summary>
+
+```Java
+public class TestPlainPizza {​
+
+  public void testMakingPizza() {​
+​
+    //First Make the plain pizza
+    Pizza pizza = new PlainPizza();​
+
+    //Decorate the plain pizza with Tomato Sauce
+    pizza = new TomatoSauce(pizza);​
+
+    //Decorate the plain pizza with Mozzarella Cheese
+    pizza = new MozzarellaCheese(pizza);​
+
+    //Now print out the description and cost.
+    System.out.println(pizza.getDescription()​
+
+      + " Cost =  $" + pizza.getCost());​
+  }​
+}​
+```
+</details>
+
+
 ## Advantages
 - Promotes code reusability and flexibility.
 - Follows the Open-Closed Principle.
