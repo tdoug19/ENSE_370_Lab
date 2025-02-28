@@ -167,12 +167,13 @@ What if I want the price of cheese goes up.  All the other pizzas I used cheese 
 
 Inheritance is static while composition is dynamic in the decorator pattern.
 
+## Let's apply the Decorator Pattern
 
 ```mermaid
 classDiagram
     direction LR
     class ToppingDecorator~abstract~ {
-        - tempPizza: Pizza
+        #tempPizza: Pizza
         +getDescrption(): String
         +getCost(): double
     }
@@ -197,10 +198,74 @@ classDiagram
     ToppingDecorator ..|> Pizza
 
 
+```
+## Write some corresponding Java code
+
+<details>
+<summary>expand Pizza.java</summary>
+
+```java
+public interface Pizza {​
+
+	public String getDescription();​
+
+	public double getCost();​​
+
+}
 
 ```
+</details>
 
+<details>
+<summary>expand PlainPizza.java</summary>
 
+```java
+public class PlainPizza implements Pizza{​
+
+	public String getDescription(){
+        return "Base Pizza";
+    }​
+
+	public double getCost(){
+        return 4.00;
+    }​​
+
+}
+
+```
+</details>
+
+<details>
+<summary>expand ToppingDecorator.java</summary>
+
+```Java
+public abstract class ToppingDecorator implements Pizza {​
+
+	protected Pizza tempPizza;​
+
+	public ToppingDecorator(Pizza newPizza){​
+
+		tempPizza = newPizza;​
+
+	}		​
+
+​
+	public String getDescription(){​
+
+		return tempPizza.getDescription();​
+
+	}​
+
+​
+	public double getCost(){​
+
+		return tempPizza.getCost();​
+
+	}​
+}
+```
+
+</details>
 
 ## Advantages
 - Promotes code reusability and flexibility.
