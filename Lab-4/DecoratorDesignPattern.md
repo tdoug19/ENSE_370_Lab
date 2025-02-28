@@ -9,7 +9,7 @@
 ## Background
 The **Decorator Pattern** is a structural design pattern that allows behavior to be added to individual objects, dynamically, without affecting the behavior of other objects from the same class. It is often used to adhere to the [**Open-Closed Principle**](./OpenClosed.md) in object-oriented design.
 
-# Java Abstract Classes vs Interface Classes
+## Java Abstract Classes vs Interface Classes
 
 ## Interfaces
 An **interface** is a reference type in Java that is similar to a class but only contains abstract methods (until Java 8, when default and static methods were introduced).
@@ -244,23 +244,15 @@ public abstract class ToppingDecorator implements Pizza {​
 	protected Pizza tempPizza;​
 
 	public ToppingDecorator(Pizza newPizza){​
-
 		tempPizza = newPizza;​
-
 	}		​
-
 ​
 	public String getDescription(){​
-
 		return tempPizza.getDescription();​
-
 	}​
 
-​
 	public double getCost(){​
-
 		return tempPizza.getCost();​
-
 	}​
 }
 ```
@@ -291,7 +283,6 @@ public class MozzarellaCheese extends ToppingDecorator {​
 	public double getCost(){​
         return tempPizza.getCost() + 2.00;​
     }​
-
 }
 
 ```
@@ -324,7 +315,6 @@ public class TestPlainPizza {​
 }​
 ```
 </details>
-
 
 ## Advantages
 - Promotes code reusability and flexibility.
