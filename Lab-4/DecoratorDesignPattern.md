@@ -357,3 +357,26 @@ public class TestPlainPizza {
 ## Conclusion
 The **Decorator Pattern** is a powerful way to extend functionalities dynamically. It allows the composition of different behaviors without modifying existing code, making it an essential tool in software design.
 
+## Procedure
+
+### Car Dealership Model Using the Decorator Design Pattern
+
+Now that you have seen how powerful the **Decorator Design Pattern** is, you will use it to model a **car dealership**.  
+
+You can pick your own vehicle, but if you need a suggestion, visit [Chevrolet](http://www.chevrolet.com/) and select a vehicle of your choice. Look for one that you can **build and price** through their web interface.  
+
+### **Objective**
+Your job is to model this same procedure using the **Decorator Pattern**. If a set of options contains more than **five choices** (e.g., mechanical options), just present **five** options.  
+
+### **Requirements**
+- As you **decorate the vehicle** with various options, indicate:
+  - The **description** of each option.  
+  - The **cost** of the vehicle after adding the option.  
+- Your design should allow decorating a vehicle with **any combination of available options**.  
+- There is **no need for a user interface**.  
+- Use **test code** to simulate the design.  
+- Ensure your **test code** decorates various combinations to test the functionality.  
+- Document your design with a **UML Class Diagram**.  
+
+## Deliverables
+Submit your code and UML documentation to Snoopy. I will post a due date on URCourses.
