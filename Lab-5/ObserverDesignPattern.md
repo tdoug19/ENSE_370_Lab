@@ -28,13 +28,15 @@ The **Observer Pattern** is a **behavioral design pattern** where an object (**S
 ---
 ```mermaid
 classDiagram 
-    class Subject {
-        +registerObserver(Observer observer)
-        +removeObserver(Observer observer)
+    
+    class WeatherSubject {
+        <<interface>>
+        +registerObserver(WeatherObserver observer)
+        +removeObserver(WeatherObserver observer)
         +notifyObservers()
     }
 
-    class Observer {
+    class WeatherObserver {
         <<interface>>
         +update(float temperature, float humidity, float pressure)
     }
@@ -44,23 +46,23 @@ classDiagram
         +float temperature
         +float humidity
         +float pressure
-        +setWeather(float, float, float)
+        +updateWeather(float, float, float)
     }
 
     class CurrentConditionsDisplay {
-        +update(float temperature, float humidity, float pressure)
+        +updateWeather(float temperature, float humidity, float pressure)
         +display()
     }
 
     class ForecastDisplay {
-        +update(float temperature, float humidity, float pressure)
+        +updateWeather(float temperature, float humidity, float pressure)
         +display()
     }
-
-    Subject <|.. WeatherStation
-    Observer <|.. CurrentConditionsDisplay
-    Observer <|.. ForecastDisplay
-    WeatherStation --> Observer : Notifies
+    WeatherObserver <-- WeatherSubject
+    WeatherSubject <|.. WeatherStation : implements
+    WeatherObserver <|.. CurrentConditionsDisplay
+    WeatherObserver <|.. ForecastDisplay
+    WeatherStation --> WeatherObserver : Notifies
 
 ```
 ## **Java Implementation of Observer Pattern**  
