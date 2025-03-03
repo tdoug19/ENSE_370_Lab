@@ -28,7 +28,6 @@ The **Observer Pattern** is a **behavioral design pattern** where an object (**S
 ---
 ```mermaid
 classDiagram 
-    direction LR
     class Subject {
         +registerObserver(Observer observer)
         +removeObserver(Observer observer)
@@ -58,17 +57,10 @@ classDiagram
         +display()
     }
 
-    class ObserverPatternDemo {
-        +main(String[] args)
-    }
-
     Subject <|.. WeatherStation
     Observer <|.. CurrentConditionsDisplay
     Observer <|.. ForecastDisplay
     WeatherStation --> Observer : Notifies
-    ObserverPatternDemo --> WeatherStation : Uses
-    ObserverPatternDemo --> CurrentConditionsDisplay : Uses
-    ObserverPatternDemo --> ForecastDisplay : Uses
 
 ```
 ## **Java Implementation of Observer Pattern**  
