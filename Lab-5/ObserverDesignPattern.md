@@ -42,26 +42,26 @@ classDiagram
     }
 
     class WeatherStation {
-        +List<Observer> weatherObservers
+        +ArrayList<Observer> weatherObservers
         +float temperature
         +float humidity
         +float pressure
         +updateWeather(float, float, float)
     }
 
-    class CurrentConditionsDisplay {
+    class BethuneStation {
         +updateWeather(float temperature, float humidity, float pressure)
         +display()
     }
 
-    class ForecastDisplay {
+    class ChamberlainStation {
         +updateWeather(float temperature, float humidity, float pressure)
         +display()
     }
     WeatherObserver <-- WeatherSubject
     WeatherSubject <|.. WeatherStation : implements
-    WeatherObserver <|.. CurrentConditionsDisplay
-    WeatherObserver <|.. ForecastDisplay
+    WeatherObserver <|.. BethuneStation
+    WeatherObserver <|.. ChamberlainStation
     WeatherStation --> WeatherObserver : Notifies
 
 ```
@@ -82,32 +82,30 @@ interface WeatherSubject {
 This class contains the weather information that needs to be sent to the Observers.
 
 ```java
+import java.util.List;
+
 class WeatherStation implements WeatherSubject {
-    List<WeatherObserver> weatherObservers;
+    ArrayList<WeatherObserver> weatherObservers;
     float temperature;
     float humidity;
     float pressure;
 
     public WeatherStation(){
-        weatherObserver = new List<WeatherObserver>();
+        weatherObserver = new ArrayList<WeatherObserver>();
 
     }
 
 }
 
 ```
+
+### **Step 3: Create the WeatherObserver**
+This class contains the weather information that needs to be sent to the Observers.
+
 ```java
-// Observer interface
 interface WeatherObserver {
-    void updateWeather(float temperature, float humidity, float pressure);
+    public void updateWeather(float temperature, float humidity, float pressure);
 }
 ```
 
-### **Step 2: Create the WeatherSubject Interface**
-Defines methods for adding, removing, and notifying observers.
-
-```java
-import java.util.ArrayList;
-import java.util.List;
-
-```
+### **Step 4: Create the observing customer**
