@@ -42,7 +42,7 @@ classDiagram
     }
 
     class WeatherStation {
-        +List<Observer> observers
+        +List<Observer> weatherObservers
         +float temperature
         +float humidity
         +float pressure
@@ -67,9 +67,35 @@ classDiagram
 ```
 ## **Java Implementation of Observer Pattern**  
 
-### **Step 1: Define the WeatherObserver Interface**  
-Each observer must implement this interface.  
+### **Step 1: Define the WeatherSubject Interface**   
 
+```java
+// Subject interface
+interface WeatherSubject {
+    void registerObserver(WeatherObserver observer);
+    void removeObserver(WeatherObserver observer);
+    void notifyObservers();
+}
+```
+
+### **Step 2: Create the WeatherStation**
+This class contains the weather information that needs to be sent to the Observers.
+
+```java
+class WeatherStation implements WeatherSubject {
+    List<WeatherObserver> weatherObservers;
+    float temperature;
+    float humidity;
+    float pressure;
+
+    public WeatherStation(){
+        weatherObserver = new List<WeatherObserver>();
+
+    }
+
+}
+
+```
 ```java
 // Observer interface
 interface WeatherObserver {
@@ -84,10 +110,4 @@ Defines methods for adding, removing, and notifying observers.
 import java.util.ArrayList;
 import java.util.List;
 
-// Subject interface
-interface WeatherSubject {
-    void registerObserver(WeatherObserver observer);
-    void removeObserver(WeatherObserver observer);
-    void notifyObservers();
-}
 ```
