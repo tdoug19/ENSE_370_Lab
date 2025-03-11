@@ -49,19 +49,19 @@ classDiagram
         +updateWeather(float, float, float)
     }
 
-    class BethuneStation {
+    class CityWeatherStation {
         +updateWeather(float temperature, float humidity, float pressure)
         +display()
     }
 
-    class ChamberlainStation {
+    class HomeWeatherStation {
         +updateWeather(float temperature, float humidity, float pressure)
         +display()
     }
     WeatherObserver <-- WeatherSubject
     WeatherSubject <|.. WeatherStation : implements
-    WeatherObserver <|.. BethuneStation
-    WeatherObserver <|.. ChamberlainStation
+    WeatherObserver <|.. CityWeatherStation
+    WeatherObserver <|.. HomeWeatherStation
     WeatherStation --> WeatherObserver : Notifies
 
 ```
@@ -83,20 +83,42 @@ This class contains the weather information that needs to be sent to the Observe
 
 ```java
 import java.util.List;
+import java.util.ArrayList;
 
 class WeatherStation implements WeatherSubject {
+
     ArrayList<WeatherObserver> weatherObservers;
     float temperature;
     float humidity;
     float pressure;
 
     public WeatherStation(){
-        weatherObserver = new ArrayList<WeatherObserver>();
+        weatherObservers = new ArrayList<WeatherObserver>();
+    }
+
+    public void registerObserver(WeatherObserver observer){
+
+        weatherObservers.add(observer);
+    }
+
+    public void removeObserver(WeatherObserver observer){
+        weatherObservers.remove(observer);
+    }
+
+    public void notifyObservers(){
+        for( WeatherObserver observers: weatherObservers){
+            observers.updateWeather(temperature, humidity, pressure);
+        }
 
     }
 
+    public void updateWeather(float temperature, float humidity, float pressure){
+        this.temperature = temperature;
+        this.humidity = humidity;
+        this.pressure = pressure;
+        notifyObservers();
+    }
 }
-
 ```
 
 ### **Step 3: Create the WeatherObserver**
@@ -109,3 +131,52 @@ interface WeatherObserver {
 ```
 
 ### **Step 4: Create the observing customer**
+This class is the concrete weather customer that wants to get updated.
+```java
+class CityWeatherStation implements WeatherObserver{
+
+    float temperature;
+    float humidity;
+    float pressure;
+
+    public void updateWeather(float temperature, float humidity, float pressure){
+        this.temperature = temperature;
+        this.humidity = humidity;
+        this.pressure = pressure;
+        display();
+
+    }
+
+    public void display(){
+        System.out.println("Temperature = " + temperature);
+        System.out.println("Humidity = " + humidity);
+        System.out.println("Pressure = " + pressure);  
+    }
+}
+
+```
+
+### **Step 5: Test!**
+```java
+class TestWeather {
+
+    public static void main(String[] args){
+
+
+        WeatherStation ws = new WeatherStation();
+        
+        CityWeatherStation regina = new CityWeatherStation();
+        ws.registerObserver(regina);
+        ws.updateWeather(13, 80, 120);
+        
+    }
+```
+
+## Procedure
+Download the sample application found in the Gamecenter folder. This application is the prototype for an NHL application. Currently, it supports 6 teams and will allow creating games for that day and updating the game scores.
+
+Given the existing application, the objective is to adapt it to provide notifications to an interested user. The way to do this is to modify the code to use the observer design pattern.
+
+## Deliverables
+Submit your code and UML Class Diagram documentation to Snoopy.
+
