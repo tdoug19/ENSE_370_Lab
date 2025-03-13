@@ -1,10 +1,12 @@
-# ENSE 370 Lab  
-## Redesign and Refactoring  
+## ENSE 370 - Software System Design - Laboratory
 
-**Author:** Trevor Douglas  
-**Software Systems Lab Instructor**  
-**University of Regina**  
+# Lab 6: Redesign and Refactorin
+### University of Regina
+### Faculty of Engineering and Applied Science - Software Systems Engineering
 
+### Lab Instructor: [Trevor Douglas](mailto:trevor.douglas@uregina.ca)
+
+  
 ## Procedure  
 You have been employed at the "Best Cup of Coffee" Company. They provide coffee makers and have software simulating functionality. Given the code on URCourses, you are to redesign this code and improve it. Originally, the company was small and created a coffee maker like so:
 
@@ -125,7 +127,7 @@ Clearly, there are issues with this design going forward. Is this design "Open" 
 - **Change Preventers** - How hard is it to change?
 - **Object-Oriented Abusers** - Breaking object-oriented programming principles.
 
-In fact, there is a rumor about another coffee maker coming online that contains chocolate to make Mocha beverages.
+In fact, there is a rumour about another coffee maker coming online that contains chocolate to make Mocha beverages.
 
 ## Requirements  
 Redesign this software solution using OO design principles and any Software Patterns you think are applicable to remove these smells and make our code open to change.
