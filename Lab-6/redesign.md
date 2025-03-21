@@ -1,6 +1,6 @@
 ## ENSE 370 - Software System Design - Laboratory
 
-# Lab 6: Redesign and Refactorin
+# Lab 6: Redesign and Refactoring
 ### University of Regina
 ### Faculty of Engineering and Applied Science - Software Systems Engineering
 
@@ -8,7 +8,7 @@
 
   
 ## Procedure  
-You have been employed at the "Best Cup of Coffee" Company. They provide coffee makers and have software simulating functionality. Given the code on URCourses, you are to redesign this code and improve it. Originally, the company was small and created a coffee maker like so:
+You have been employed at the "Best Cup of Coffee" Company. They provide coffee makers and have software simulating functionality. Given the code on our GitHub site, you are to redesign this code and improve it. Originally, the company was small and created a coffee maker like so:
 
 ```java
 public class BlackAndDecker {
@@ -122,7 +122,7 @@ public class CoffeeMaker {
 ```
 
 ## Code Problems  
-Clearly, there are issues with this design going forward. Is this design "Open" to change or "Closed" meaning that the code works and it should be left alone? What about other "Code Smells":
+Clearly, there are issues with this design going forward. For example our Black and Decker coffee maker inherits from our basic Coffee Maker but cannot perform all of that functionality.  Should this base Coffee Maker be abstract? Is this design "Open" to change or "Closed".  What about other "Code Smells":
 - **Bloaters** - Code, Methods, and Classes have increased and are getting hard to deal with.
 - **Change Preventers** - How hard is it to change?
 - **Object-Oriented Abusers** - Breaking object-oriented programming principles.
