@@ -377,16 +377,22 @@ Approaches and hints:
 
 ## Testing
 
+### 🛠️ Compiling and Running Your Code
+
 After filling in and fixing the existing application, compile your code like so:
 
-In the assn-start folder you can build your code and test cases.
-javac -d bin -cp "junit-platform-console-standalone-1.7.0-all.jar" LoginTest.java
+In the `assn-start` folder, you can build your code and test cases:
 
-this will build your code and put your test class file in a bin directory.
+```bash
+javac -d bin -cp "junit-platform-console-standalone-1.7.0-all.jar" LoginTest.java
+```
+This will compile your code and place the test class file in a bin directory.
 
 Now you can run your tests :
 
+```bash
 java -jar junit-platform-console-standalone-1.7.0-all.jar -cp bin --scan-class-path
+```
 
 Then your tests will run.  If your solution is correct all tests will pass.
 
