@@ -374,6 +374,22 @@ Approaches and hints:
 - You will know the system is recovered if the existing Test Cases pass
 - It's safe to assume that all of the algorithms provided have some fundamental flaws, making them possible to reverse engineer for learning purposes, and really soulnd't be considered secure enough for real world usage!
   
+
+## Testing
+
+After filling in and fixing the existing application, compile your code like so:
+
+In the assn-start folder you can build your code and test cases.
+javac -d bin -cp "junit-platform-console-standalone-1.7.0-all.jar" LoginTest.java
+
+this will build your code and put your test class file in a bin directory.
+
+Now you can run your tests :
+
+java -jar junit-platform-console-standalone-1.7.0-all.jar -cp bin --scan-class-path
+
+Then your tests will run.  If your solution is correct all tests will pass.
+
 ---
 
 ## Submission
